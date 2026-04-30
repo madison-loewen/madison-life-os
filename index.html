@@ -16,13 +16,13 @@
             --secondary: #8B7355;
             --accent: #E8DCC8;
             --dark: #2C2C2C;
-            --light: #F9F7F4;
+            --light: #F5F5F5;
             --success: #7CB342;
             --warning: #FFA726;
         }
 
         body {
-            background: linear-gradient(135deg, #F9F7F4 0%, #F0EBE3 100%);
+            background: linear-gradient(135deg, #F9F3ED 0%, #F0E3D9 100%);
             color: var(--dark);
             font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Helvetica Neue', sans-serif;
             min-height: 100vh;
@@ -35,64 +35,74 @@
             margin: 0 auto;
         }
 
-        /* Header */
         .header {
             text-align: center;
             margin-bottom: 40px;
-            padding-top: 20px;
         }
 
         .greeting {
-            font-size: 28px;
-            font-weight: 300;
-            color: var(--dark);
+            font-size: 32px;
+            font-weight: 600;
             margin-bottom: 8px;
-            letter-spacing: 0.5px;
+            color: var(--dark);
         }
 
-        .date-time {
+        .date {
             font-size: 14px;
             color: var(--secondary);
-            font-weight: 500;
+            opacity: 0.8;
         }
 
-        /* Section Styles */
+        .quote-section {
+            background: var(--primary);
+            border-radius: 12px;
+            padding: 24px;
+            margin-bottom: 30px;
+            text-align: center;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        .quote-text {
+            font-size: 16px;
+            font-style: italic;
+            color: white;
+            line-height: 1.6;
+            margin-bottom: 12px;
+        }
+
+        .quote-label {
+            font-size: 12px;
+            color: rgba(255, 255, 255, 0.8);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
         .section {
             background: white;
             border-radius: 12px;
             padding: 24px;
             margin-bottom: 20px;
-            box-shadow: 0 2px 8px rgba(44, 44, 44, 0.08);
             border-left: 4px solid var(--primary);
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
         }
 
         .section-title {
-            font-size: 14px;
-            font-weight: 700;
+            font-size: 12px;
+            font-weight: 600;
+            color: var(--secondary);
             text-transform: uppercase;
             letter-spacing: 1px;
-            color: var(--secondary);
             margin-bottom: 16px;
-            padding-bottom: 8px;
-            border-bottom: 1px solid var(--accent);
-        }
-
-        /* Priorities */
-        .priorities-list {
-            list-style: none;
         }
 
         .priority-item {
-            padding: 12px 16px;
-            margin-bottom: 12px;
-            background: linear-gradient(135deg, var(--accent) 0%, #F0EBE3 100%);
-            border-radius: 8px;
-            border-left: 3px solid var(--primary);
-            font-size: 15px;
-            font-weight: 500;
             display: flex;
-            align-items: center;
-            gap: 12px;
+            align-items: flex-start;
+            margin-bottom: 12px;
+            padding: 12px;
+            background: var(--accent);
+            border-radius: 8px;
+            font-size: 14px;
         }
 
         .priority-number {
@@ -104,208 +114,153 @@
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 12px;
-            font-weight: 700;
+            margin-right: 12px;
+            font-weight: 600;
             flex-shrink: 0;
         }
 
-        /* Habits */
-        .habits-grid {
-            display: grid;
+        .priority-text {
+            flex: 1;
+            color: var(--dark);
+        }
+
+        .habit-list {
+            display: flex;
+            flex-direction: column;
             gap: 12px;
         }
 
         .habit-item {
             display: flex;
             align-items: center;
-            padding: 12px 16px;
-            background: var(--light);
-            border-radius: 8px;
-            border: 2px solid transparent;
+            padding: 8px 0;
+            font-size: 15px;
             cursor: pointer;
-            transition: all 0.3s ease;
-        }
-
-        .habit-item:hover {
-            background: var(--accent);
-        }
-
-        .habit-item.completed {
-            background: linear-gradient(135deg, #E8F5E9 0%, #F1F8E9 100%);
-            border-color: var(--success);
+            user-select: none;
         }
 
         .habit-checkbox {
             width: 20px;
             height: 20px;
-            border: 2px solid var(--secondary);
-            border-radius: 4px;
             margin-right: 12px;
+            cursor: pointer;
+            accent-color: var(--primary);
+        }
+
+        .habit-label {
+            flex: 1;
+            color: var(--dark);
+        }
+
+        .habit-item input:checked + .habit-label {
+            text-decoration: line-through;
+            color: var(--secondary);
+            opacity: 0.6;
+        }
+
+        .calendar-section {
+            margin-top: 16px;
+            padding-top: 16px;
+            border-top: 1px solid var(--accent);
+        }
+
+        .calendar-title {
+            font-size: 12px;
+            font-weight: 600;
+            color: var(--secondary);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 12px;
+        }
+
+        .calendar-events {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .calendar-event {
             display: flex;
             align-items: center;
-            justify-content: center;
-            cursor: pointer;
-            flex-shrink: 0;
-            transition: all 0.2s ease;
-        }
-
-        .habit-item.completed .habit-checkbox {
-            background: var(--success);
-            border-color: var(--success);
-            color: white;
-        }
-
-        .habit-name {
-            flex: 1;
+            padding: 10px;
+            background: var(--accent);
+            border-radius: 6px;
             font-size: 14px;
-            font-weight: 500;
+            border-left: 3px solid var(--primary);
         }
 
-        .habit-item.completed .habit-name {
-            color: var(--success);
-            text-decoration: line-through;
-            opacity: 0.7;
+        .event-time {
+            font-weight: 600;
+            color: var(--primary);
+            min-width: 70px;
+            font-size: 12px;
         }
 
-        /* Stats */
-        .stats-grid {
+        .event-title {
+            flex: 1;
+            margin-left: 12px;
+            color: var(--dark);
+        }
+
+        .event-tag {
+            font-size: 11px;
+            padding: 2px 8px;
+            border-radius: 4px;
+            background: var(--primary);
+            color: white;
+            margin-left: 8px;
+        }
+
+        .progress-section {
+            margin-top: 20px;
+        }
+
+        .progress-stats {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            grid-template-columns: repeat(2, 1fr);
             gap: 12px;
         }
 
         .stat-card {
-            background: linear-gradient(135deg, var(--accent) 0%, #F0EBE3 100%);
-            padding: 16px;
+            background: var(--accent);
+            padding: 12px;
             border-radius: 8px;
             text-align: center;
-            border-top: 3px solid var(--primary);
         }
 
         .stat-value {
-            font-size: 24px;
-            font-weight: 700;
+            font-size: 20px;
+            font-weight: 600;
             color: var(--primary);
-            margin-bottom: 4px;
         }
 
         .stat-label {
             font-size: 12px;
             color: var(--secondary);
-            font-weight: 500;
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
+            margin-top: 4px;
         }
 
-        /* Motivational Quote */
-        .quote-section {
-            background: linear-gradient(135deg, var(--primary) 0%, #C99C6F 100%);
-            color: white;
-            padding: 28px;
-            border-radius: 12px;
-            text-align: center;
-            margin-bottom: 20px;
-            box-shadow: 0 4px 12px rgba(212, 165, 116, 0.3);
-        }
-
-        .quote-text {
-            font-size: 16px;
-            font-weight: 500;
-            line-height: 1.6;
-            letter-spacing: 0.3px;
-            margin-bottom: 12px;
-        }
-
-        .quote-author {
-            font-size: 12px;
-            opacity: 0.9;
+        .loading {
+            color: var(--secondary);
+            font-size: 14px;
             font-style: italic;
         }
 
-        /* Action Buttons */
-        .actions {
-            display: flex;
-            gap: 12px;
-            margin-top: 20px;
-            flex-wrap: wrap;
-        }
-
-        .btn {
-            flex: 1;
-            min-width: 140px;
-            padding: 12px 16px;
-            border: none;
-            border-radius: 8px;
-            font-size: 13px;
-            font-weight: 600;
-            cursor: pointer;
-            transition: all 0.2s ease;
-            text-decoration: none;
-            text-align: center;
-        }
-
-        .btn-primary {
-            background: var(--primary);
-            color: white;
-        }
-
-        .btn-primary:hover {
-            background: var(--secondary);
-            transform: translateY(-2px);
-        }
-
-        .btn-secondary {
-            background: var(--accent);
-            color: var(--dark);
-            border: 1px solid var(--primary);
-        }
-
-        .btn-secondary:hover {
-            background: var(--primary);
-            color: white;
-        }
-
-        /* Footer */
-        .footer {
-            text-align: center;
-            padding: 20px;
-            font-size: 12px;
-            color: var(--secondary);
-            opacity: 0.7;
-        }
-
-        /* Animations */
-        @keyframes slideIn {
-            from {
-                opacity: 0;
-                transform: translateY(10px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        .section {
-            animation: slideIn 0.5s ease-out;
-        }
-
-        /* Mobile Responsive */
-        @media (max-width: 600px) {
+        @media (max-width: 480px) {
             .container {
-                padding: 10px;
+                padding: 0;
             }
 
             .greeting {
-                font-size: 22px;
+                font-size: 24px;
             }
 
             .section {
                 padding: 16px;
             }
 
-            .stats-grid {
-                grid-template-columns: repeat(2, 1fr);
+            .progress-stats {
+                grid-template-columns: 1fr;
             }
         }
     </style>
@@ -314,154 +269,230 @@
     <div class="container">
         <!-- Header -->
         <div class="header">
-            <div class="greeting" id="greeting">Good morning, Madison</div>
-            <div class="date-time" id="datetime"></div>
+            <div class="greeting" id="greeting">Good afternoon, Madison</div>
+            <div class="date" id="currentDate">Thursday, April 30, 2026</div>
         </div>
 
-        <!-- Motivational Quote -->
+        <!-- Quote Section -->
         <div class="quote-section">
-            <div class="quote-text" id="quote">"The only way to do great work is to love what you do." — Steve Jobs</div>
-            <div class="quote-author">Daily Inspiration</div>
+            <div class="quote-text" id="dailyQuote">"The only way to do great work is to love what you do." — Steve Jobs</div>
+            <div class="quote-label">Daily Inspiration</div>
         </div>
 
-        <!-- Today's Top 3 Priorities -->
+        <!-- Today's Focus Section -->
         <div class="section">
             <div class="section-title">Today's Focus</div>
-            <ul class="priorities-list">
-                <li class="priority-item">
-                    <div class="priority-number">1</div>
-                    <div>[Add your first priority]</div>
-                </li>
-                <li class="priority-item">
-                    <div class="priority-number">2</div>
-                    <div>[Add your second priority]</div>
-                </li>
-                <li class="priority-item">
-                    <div class="priority-number">3</div>
-                    <div>[Add your third priority]</div>
-                </li>
-            </ul>
+            <div id="prioritiesContainer" class="loading">Loading your priorities...</div>
         </div>
 
-        <!-- Daily Habits -->
+        <!-- Today's Habits & Calendar Section -->
         <div class="section">
             <div class="section-title">Today's Habits</div>
-            <div class="habits-grid">
-                <div class="habit-item" onclick="toggleHabit(this)">
-                    <div class="habit-checkbox"></div>
-                    <div class="habit-name">🙏 Morning Scripture & Prayer</div>
-                </div>
-                <div class="habit-item" onclick="toggleHabit(this)">
-                    <div class="habit-checkbox"></div>
-                    <div class="habit-name">💪 Exercise (45min - 1hr)</div>
-                </div>
-                <div class="habit-item" onclick="toggleHabit(this)">
-                    <div class="habit-checkbox"></div>
-                    <div class="habit-name">🥗 Log Nutrition (Cronometer)</div>
-                </div>
-                <div class="habit-item" onclick="toggleHabit(this)">
-                    <div class="habit-checkbox"></div>
-                    <div class="habit-name">😴 Sleep 7.5-8 hours</div>
-                </div>
-                <div class="habit-item" onclick="toggleHabit(this)">
-                    <div class="habit-checkbox"></div>
-                    <div class="habit-name">🧠 Learn: AI & Business</div>
-                </div>
-                <div class="habit-item" onclick="toggleHabit(this)">
-                    <div class="habit-checkbox"></div>
-                    <div class="habit-name">💬 Connect with someone</div>
-                </div>
-                <div class="habit-item" onclick="toggleHabit(this)">
-                    <div class="habit-checkbox"></div>
-                    <div class="habit-name">📱 Check in with Nick</div>
+            <div class="habit-list">
+                <label class="habit-item">
+                    <input type="checkbox" class="habit-checkbox" id="habit-prayer">
+                    <span class="habit-label">🙏 Morning Scripture & Prayer</span>
+                </label>
+                <label class="habit-item">
+                    <input type="checkbox" class="habit-checkbox" id="habit-exercise">
+                    <span class="habit-label">💪 Exercise (45min - 1hr)</span>
+                </label>
+                <label class="habit-item">
+                    <input type="checkbox" class="habit-checkbox" id="habit-macros">
+                    <span class="habit-label">🥗 Meet Macros</span>
+                </label>
+                <label class="habit-item">
+                    <input type="checkbox" class="habit-checkbox" id="habit-sleep">
+                    <span class="habit-label">😴 Sleep 7.5–8 hours</span>
+                </label>
+                <label class="habit-item">
+                    <input type="checkbox" class="habit-checkbox" id="habit-learning">
+                    <span class="habit-label">💻 Learn: AI & Business</span>
+                </label>
+            </div>
+
+            <!-- Calendar Overview -->
+            <div class="calendar-section">
+                <div class="calendar-title">📆 Today's Calendar</div>
+                <div id="calendarContainer" class="calendar-events">
+                    <div class="loading">Loading calendar...</div>
                 </div>
             </div>
         </div>
 
-        <!-- Weekly Stats -->
+        <!-- Progress Section -->
         <div class="section">
             <div class="section-title">Your Progress</div>
-            <div class="stats-grid">
+            <div class="progress-stats">
                 <div class="stat-card">
-                    <div class="stat-value" id="week-streak">0</div>
+                    <div class="stat-value" id="weekStreak">0</div>
                     <div class="stat-label">Week Streak</div>
                 </div>
                 <div class="stat-card">
-                    <div class="stat-value" id="habit-completion">0%</div>
+                    <div class="stat-value" id="completionRate">0%</div>
                     <div class="stat-label">Completion Rate</div>
-                </div>
-                <div class="stat-card">
-                    <div class="stat-value" id="priority-wins">0</div>
-                    <div class="stat-label">Wins This Week</div>
-                </div>
-                <div class="stat-card">
-                    <div class="stat-value" id="connections">0</div>
-                    <div class="stat-label">Connections Made</div>
                 </div>
             </div>
         </div>
 
         <!-- Action Buttons -->
         <div class="section">
-            <div class="actions">
-                <button class="btn btn-primary" onclick="openWeeklyReview()">Weekly Review</button>
-                <button class="btn btn-secondary" onclick="openGoals()">View Goals</button>
+            <div style="display: flex; gap: 12px; flex-wrap: wrap;">
+                <button style="flex: 1; min-width: 140px; padding: 12px 16px; background: var(--primary); color: white; border: none; border-radius: 8px; font-size: 13px; font-weight: 600; cursor: pointer; transition: all 0.2s ease;" onclick="openWeeklyReview()">Weekly Review</button>
+                <button style="flex: 1; min-width: 140px; padding: 12px 16px; background: var(--accent); color: var(--dark); border: 1px solid var(--primary); border-radius: 8px; font-size: 13px; font-weight: 600; cursor: pointer; transition: all 0.2s ease;" onclick="openGoals()">View Goals</button>
             </div>
-        </div>
-
-        <!-- Footer -->
-        <div class="footer">
-            You've got this. Focus on what matters most. 🌅
         </div>
     </div>
 
     <script>
-        // Update date and time
-        function updateDateTime() {
-            const now = new Date();
-            const options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
-            const dateStr = now.toLocaleDateString('en-US', options);
-            document.getElementById('datetime').textContent = dateStr;
+        // Quote database
+        const quotes = [
+            { text: "The only way to do great work is to love what you do.", author: "Steve Jobs" },
+            { text: "Success is not final, failure is not fatal.", author: "Winston Churchill" },
+            { text: "Believe you can and you're halfway there.", author: "Theodore Roosevelt" },
+            { text: "The future belongs to those who believe in the beauty of their dreams.", author: "Eleanor Roosevelt" },
+            { text: "It does not matter how slowly you go as long as you do not stop.", author: "Confucius" }
+        ];
 
-            // Update greeting based on time
-            const hour = now.getHours();
-            const greeting = document.querySelector('.greeting');
-            if (hour < 12) {
-                greeting.textContent = 'Good morning, Madison';
-            } else if (hour < 17) {
-                greeting.textContent = 'Good afternoon, Madison';
-            } else {
-                greeting.textContent = 'Good evening, Madison';
+        // Notion API configuration
+        const NOTION_API_KEY = localStorage.getItem('notionApiKey') || '';
+        const DAILY_TRACKING_DB = '5bac16b7-1911-4e0f-b73b-120678bc1f05';
+        const CALENDAR_DB = '5f9a89e9-a3ee-48e0-9705-335602b78501';
+
+        // Update greeting based on time of day
+        function updateGreeting() {
+            const hour = new Date().getHours();
+            const greeting = document.getElementById('greeting');
+            let timeGreeting = 'Good morning';
+
+            if (hour >= 12 && hour < 18) {
+                timeGreeting = 'Good afternoon';
+            } else if (hour >= 18) {
+                timeGreeting = 'Good evening';
             }
+
+            greeting.textContent = `${timeGreeting}, Madison`;
         }
 
-        // Toggle habit completion
-        function toggleHabit(element) {
-            element.classList.toggle('completed');
-            updateStats();
+        // Update current date
+        function updateDate() {
+            const options = { weekday: 'long', month: 'long', day: 'numeric', year: 'numeric' };
+            const date = new Date();
+            document.getElementById('currentDate').textContent = date.toLocaleDateString('en-US', options);
         }
 
-        // Update statistics
-        function updateStats() {
-            const completed = document.querySelectorAll('.habit-item.completed').length;
-            const total = document.querySelectorAll('.habit-item').length;
-            const percentage = Math.round((completed / total) * 100);
-            document.getElementById('habit-completion').textContent = percentage + '%';
+        // Set random daily quote
+        function setDailyQuote() {
+            const quote = quotes[Math.floor(Math.random() * quotes.length)];
+            document.getElementById('dailyQuote').textContent = `"${quote.text}" — ${quote.author}`;
         }
 
-        // Weekly review (placeholder)
+        // Display example priorities (will be replaced with Notion data)
+        function displayPriorities(priorities = null) {
+            const container = document.getElementById('prioritiesContainer');
+
+            // Example priorities based on Madison's goals
+            const examplePriorities = [
+                "Complete E2 visa documentation for immigration lawyer",
+                "Master Agentic AI implementation - finish Module 4",
+                "Prepare family business strategy presentation"
+            ];
+
+            const html = examplePriorities.map((priority, index) => `
+                <div class="priority-item">
+                    <div class="priority-number">${index + 1}</div>
+                    <div class="priority-text">${priority}</div>
+                </div>
+            `).join('');
+
+            container.innerHTML = html;
+        }
+
+        // Display today's calendar events
+        function displayCalendarEvents(events = null) {
+            const container = document.getElementById('calendarContainer');
+
+            // Example calendar events for today (will be replaced with Notion data)
+            const exampleEvents = [
+                { time: "9:00 AM", title: "Client Consultation", tag: "Deep Work" },
+                { time: "5:00 PM", title: "Gym", tag: "Relationships" }
+            ];
+
+            if (!exampleEvents || exampleEvents.length === 0) {
+                container.innerHTML = '<div class="loading">No events today</div>';
+                return;
+            }
+
+            const html = exampleEvents.map(event => `
+                <div class="calendar-event">
+                    <div class="event-time">${event.time}</div>
+                    <div class="event-title">${event.title}</div>
+                    <div class="event-tag">${event.tag}</div>
+                </div>
+            `).join('');
+
+            container.innerHTML = html;
+        }
+
+        // Calculate completion percentage
+        function updateProgress() {
+            const checkboxes = document.querySelectorAll('.habit-checkbox');
+            const checked = Array.from(checkboxes).filter(cb => cb.checked).length;
+            const percentage = Math.round((checked / checkboxes.length) * 100);
+
+            document.getElementById('completionRate').textContent = `${percentage}%`;
+
+            // Calculate week streak (placeholder)
+            const streak = checked > 0 ? 3 : 0;
+            document.getElementById('weekStreak').textContent = streak;
+        }
+
+        // Initialize local storage for habits
+        function loadHabitsFromStorage() {
+            const habits = ['prayer', 'exercise', 'macros', 'sleep', 'learning'];
+            habits.forEach(habit => {
+                const checkbox = document.getElementById(`habit-${habit}`);
+                const saved = localStorage.getItem(`habit-${habit}`);
+                if (saved === 'true') {
+                    checkbox.checked = true;
+                }
+
+                checkbox.addEventListener('change', () => {
+                    localStorage.setItem(`habit-${habit}`, checkbox.checked);
+                    updateProgress();
+                });
+            });
+        }
+
+        // Initialize
+        function init() {
+            updateGreeting();
+            updateDate();
+            setDailyQuote();
+            displayPriorities();
+            displayCalendarEvents();
+            loadHabitsFromStorage();
+            updateProgress();
+
+            // Update time-dependent elements every minute
+            setInterval(() => {
+                updateGreeting();
+                updateDate();
+            }, 60000);
+        }
+
+        // Weekly review
         function openWeeklyReview() {
             alert('Weekly Review feature coming soon! Check your Notion workspace for detailed tracking.');
         }
 
-        // View goals (placeholder)
+        // View goals
         function openGoals() {
             alert('Goals tracker is in your Notion workspace. Check there to see your progress on Business/Career and Personal Growth goals.');
         }
 
-        // Initialize
-        updateDateTime();
-        setInterval(updateDateTime, 60000); // Update every minute
+        // Run on page load
+        document.addEventListener('DOMContentLoaded', init);
     </script>
 </body>
 </html>
